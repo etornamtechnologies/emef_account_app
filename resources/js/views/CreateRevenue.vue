@@ -4,7 +4,7 @@
             <v-layout>  
                 <v-card width="100%">
                 <form @submit.prevent="createRevenue">
-                    <v-toolbar color="cyan" dark>
+                    <v-toolbar color="cyan" dark flat>
                         <v-toolbar-side-icon></v-toolbar-side-icon>
                         <v-toolbar-title>Create Revenue</v-toolbar-title>
                         <v-spacer></v-spacer>

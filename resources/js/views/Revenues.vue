@@ -62,9 +62,21 @@
                             <v-toolbar-side-icon></v-toolbar-side-icon>
                             <v-toolbar-title>Revenue Records</v-toolbar-title>
                         </v-toolbar>
+                        <v-card-title>
+                            All Revenues
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                            v-model="search"
+                            append-icon="search"
+                            label="Search"
+                            single-line
+                            hide-details
+                            ></v-text-field>
+                        </v-card-title>
                         <v-data-table
                         :headers="headers"
                         :items="revenues"
+                        :search="search"
                         >
                             <template v-slot:items="props">
                                 <td class="text-xs-left">{{ props.index + 1 }}</td>
@@ -129,6 +141,7 @@
         data() {
             return {
                 filter:'',
+                search: "",
                 edit_dialog: false,
                 revenues: [],
                 headers: [{text:'#', value:'index', sortable:false},{text:'date',value:'',sortable:false}

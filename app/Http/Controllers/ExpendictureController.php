@@ -10,13 +10,12 @@ use App\Http\Controllers\Controller;
 
 class ExpendictureController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $expendictures = DB::table('expendictures')
-        ->when($request->query('filter'), function($query){
+        $expendictures = Expendicture::when($request->query('filter'), function($query){
             $query->where('payee_name', $request->query('filter'));
-        })
-        ->get();      
+        })->with(['expendicture_type'])
+        ->get();   
         return response()->json(['code'=> 200, 'expendictures'=> $expendictures]);        
     }
 

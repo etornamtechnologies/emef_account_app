@@ -62,9 +62,10 @@ export  function CreateExpendicture(ExpendictureTypeData) {
     })
 }
 
-export  function UpdateExpendicture(ExpendictureTypeData) {
+export  function UpdateExpendicture(expendicture_data) {
+    console.log(expendicture_data)
     return new Promise((resolve, reject) => {
-        updateExpendicture(ExpendictureTypeData)
+        updateExpendicture(expendicture_data)
         .then(response => {
             const data = response || {}
             resolve(data)
